@@ -14,6 +14,11 @@ export default function ActivityInput({ setPosterData, isSyncing, setIsSyncing, 
   const handleSyncLink = async () => {
     if (!url) return;
     
+    if (!accessToken) {
+      setAuthError("Silakan hubungkan akun Strava terlebih dahulu.");
+      return;
+    }
+
     // Extract activity ID from URL
     const match = url.match(/activities\/(\d+)/);
     if (!match) {
@@ -39,56 +44,95 @@ export default function ActivityInput({ setPosterData, isSyncing, setIsSyncing, 
     setIsSyncing(false);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSyncLink();
+    }
+  };
+
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col gap-4">
+    <div className="bg-[#242221] border border-[#3d3836] rounded-xl p-6 film-grain flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.25)]">
       <div className="flex justify-between items-center">
-        <h2 className="font-bold text-lg text-gray-800">1. Strava Activity</h2>
+        <label className="font-label-sm text-label-sm text-[#d58c71] uppercase tracking-[0.15em] flex items-center gap-2">
+          <span className="material-symbols-outlined text-[16px] text-[#e09b82]">link</span> Activity Source
+        </label>
         {accessToken && (
-          <button onClick={handleLogout} className="text-xs text-red-500 font-semibold hover:underline">
+          <button 
+            onClick={handleLogout} 
+            className="font-label-sm text-[10px] text-[#e09b82] uppercase tracking-widest hover:text-tertiary transition-colors"
+          >
             Disconnect
           </button>
         )}
       </div>
-      
+
       {!accessToken ? (
         <>
-          <p className="text-sm text-gray-500">Hubungkan dengan Strava untuk mengizinkan aplikasi membaca aktivitasmu.</p>
           <a 
             href={STRAVA_AUTH_URL}
             onClick={handleConnect}
-            className={`w-full py-3 rounded-lg font-bold text-white text-center transition-colors shadow-sm flex items-center justify-center gap-2 ${isSyncing ? 'bg-gray-400 cursor-wait pointer-events-none' : 'bg-[#fc4c02] hover:bg-[#e34402]'}`}
+            className="strava-uiverse-button"
+            data-text={isSyncing ? 'Connecting...' : 'Sign in with Strava'}
+            data-hover="Let's Connect ⚡"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
-            {isSyncing ? 'Loading...' : 'Connect with Strava'}
           </a>
+
+          <div className="flex items-center gap-4 py-1">
+            <div className="h-px flex-1 bg-[#3d3836]/60"></div>
+            <span className="font-label-sm text-[10px] text-on-surface-variant/40 uppercase tracking-[0.2em]">OR</span>
+            <div className="h-px flex-1 bg-[#3d3836]/60"></div>
+          </div>
+
+          <div className="relative w-full group">
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-tertiary transition-colors" data-icon="link">link</span>
+            <input 
+              type="text"
+              placeholder="Paste Strava URL..."
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              className="w-full bg-[#171514] border border-[#3d3836] focus:border-tertiary-fixed/50 text-on-surface font-body-md text-body-md py-3 pl-12 pr-4 outline-none transition-all rounded-lg placeholder:text-on-surface-variant/40 cursor-not-allowed opacity-60"
+              disabled
+              title="Hubungkan Strava terlebih dahulu"
+            />
+          </div>
+          <p className="text-[11px] text-on-surface-variant/70 italic text-center">Hubungkan dengan Strava untuk mengaktifkan sinkronisasi URL aktivitas.</p>
         </>
       ) : (
         <>
-          <p className="text-sm text-gray-500 font-medium text-green-600 flex items-center gap-1">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-            Strava Connected
-          </p>
-          <p className="text-xs text-gray-500 mt-1">Paste link aktivitas spesifik dari akunmu:</p>
+          <div className="flex items-center gap-2 py-1 text-green-400">
+            <span className="material-symbols-outlined text-[18px]">check_circle</span>
+            <span className="font-label-sm text-[11px] uppercase tracking-widest">Strava Account Connected</span>
+          </div>
+
           <div className="flex gap-2">
-            <input 
-              type="text" 
-              placeholder="https://www.strava.com/activities/123456789" 
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              className="flex-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#fc4c02]"
-            />
+            <div className="relative flex-1 group">
+              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-tertiary transition-colors" data-icon="link">link</span>
+              <input 
+                type="text" 
+                placeholder="https://www.strava.com/activities/123456789" 
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="w-full bg-[#171514] border border-[#3d3836] focus:border-tertiary-fixed/50 text-on-surface font-body-md text-body-md py-3 pl-12 pr-4 outline-none transition-all rounded-lg placeholder:text-on-surface-variant/40"
+              />
+            </div>
             <button 
               onClick={handleSyncLink}
-              disabled={isSyncing}
-              className="px-4 py-2 bg-black text-white rounded-lg text-sm font-semibold disabled:opacity-50"
-            >
-              {isSyncing ? 'Syncing...' : 'Sync'}
-            </button>
+              disabled={isSyncing || !url}
+              className="strava-uiverse-button-small"
+              data-text={isSyncing ? 'Syncing...' : 'Sync'}
+              data-hover="Go! ⚡"
+            ></button>
           </div>
         </>
       )}
 
-      {authError && <p className="text-red-500 text-xs font-semibold">{authError}</p>}
+      {authError && (
+        <div className="text-red-400 text-xs font-semibold mt-1 p-2 bg-error-container/20 rounded border border-error/20 flex items-center gap-2">
+          <span className="material-symbols-outlined text-[16px]">error</span>
+          <span>{authError}</span>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import Cropper from 'react-easy-crop'
 import '../styles/aftersun.css'
 
-export default function PosterCanvas({ data }) {
+export default function PosterCanvas({ data, style }) {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
 
+  const isExternal = data.photoUrl && (data.photoUrl.startsWith('http://') || data.photoUrl.startsWith('https://'));
+  const crossOriginProp = isExternal ? 'anonymous' : undefined;
+
   return (
-    <div id="poster-export-node" className="poster" data-name="after_sun_design">
+    <div id="poster-export-node" className="poster" data-name="after_sun_design" style={style}>
         {/* Left photo panel */}
         <div className="frame-image" data-name="FRAME_IMAGE">
             <div className="image-bg" data-name="image_bg" style={{ position: 'relative' }}>
@@ -23,7 +26,8 @@ export default function PosterCanvas({ data }) {
                     containerStyle: { width: '100%', height: '100%', position: 'absolute' },
                     cropAreaStyle: { border: 'none', boxShadow: 'none' }
                   }}
-                  crossOrigin="anonymous"
+                  crossOrigin={crossOriginProp}
+                  objectFit="cover"
                 />
             </div>
         </div>

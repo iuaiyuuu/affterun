@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Affterun Tablet Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdbd0",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "surface": "#141313",
+                        "on-error": "#690005",
+                        "primary-container": "#1a1a1a",
+                        "surface-variant": "#353434",
+                        "on-primary-container": "#848282",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#3a3939",
+                        "primary": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#c36b4d",
+                        "on-secondary-container": "#b9b8b4",
+                        "on-tertiary-fixed": "#390c00",
+                        "on-tertiary": "#5a1b04",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-tint": "#c8c6c5",
+                        "on-secondary-fixed": "#1b1c19",
+                        "surface-container-low": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#783118",
+                        "on-background": "#e5e2e1",
+                        "secondary": "#c8c6c2",
+                        "on-primary": "#313030",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#141313",
+                        "outline": "#8e9192",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e4e2dd",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#ffb59d",
+                        "secondary-container": "#494946",
+                        "surface-container": "#201f1f",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "on-secondary": "#30312e",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-highest": "#353434",
+                        "surface-container-high": "#2b2a2a",
+                        "outline-variant": "#444748",
+                        "on-primary-fixed-variant": "#474746",
+                        "background": "#141313",
+                        "tertiary-container": "#370b00",
+                        "on-secondary-fixed-variant": "#474744"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-mobile": "24px",
+                        "container-padding-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "body-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "headline-xl": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .film-grain {
+            position: relative;
+        }
+        .film-grain::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            z-index: 10;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen film-grain flex flex-col md:flex-row overflow-hidden">
+<!-- Left Sidebar (Controls) -->
+<aside class="w-full md:w-[40%] max-w-[480px] h-screen bg-surface-container-low flex flex-col border-r border-outline-variant/20 shadow-[10px_0_30px_rgba(0,0,0,0.1)] relative z-20">
+<!-- Top App Bar (Header) -->
+<header class="bg-background/80 backdrop-blur-md flex justify-between items-center w-full px-container-padding-mobile py-6 flex-shrink-0">
+<button class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 transition-transform hover:scale-105 active:scale-95"><img alt="Affterun Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uhW_3xr8n16KupPx1tKmsHCT0yVwa4apkWmz6i7d27JEmg7GyMMBp7EehjeLGi7y4tP7NbKqxOqTabe3sbOBJ0clU26D0JlPs78Io8U8jVyAe6gDnbRTYj75uB61HfJunDmqNCZCV06OANEnSe8XtfX9BE8jtJSq2i39ZfI0xVwsfIB13tgkB5LSuAvmlv_nIeaeQlflzoP-x3Jzm8ECQSnCRtkHjlICfQLF3wFGBXllJPDHY7M0TXFSqAwZ9On775nEdssTNCaZw"/></button>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-[0.1em]">AFFTERUN</h1>
+<button class="text-primary hover:text-primary transition-colors duration-300">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300">Archive</span>
+</button>
+</header>
+<!-- Scrollable Control Area -->
+<div class="flex-1 overflow-y-auto hide-scrollbar px-container-padding-mobile py-8 flex flex-col gap-12"><section class="flex flex-col gap-3">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Authentication</p>
+<button class="flex items-center justify-center gap-3 bg-[#FC6100] text-white py-3.5 px-6 rounded-lg font-body-md font-medium transition-all hover:bg-[#E25600] active:scale-[0.98] shadow-lg shadow-orange-900/10">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"></path>
+</svg>
+        Connect with Strava
+    </button>
+<p class="text-[10px] text-on-surface-variant/60 text-center uppercase tracking-tighter">Securely sync your activities to generate posters</p>
+</section>
+<!-- Strava Link Input -->
+<section class="flex flex-col gap-4">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Run Data Source</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">link</span>
+<input class="w-full bg-surface-container text-on-surface border border-outline-variant/30 rounded-lg py-4 pl-12 pr-4 focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-colors font-body-md placeholder:text-on-surface-variant/50" placeholder="Paste Strava Activity URL..." type="text"/>
+</div>
+</section>
+<!-- Photo Upload Zone -->
+<section class="flex flex-col gap-4">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Cover Image</label>
+<div class="border border-dashed border-outline-variant/40 rounded-xl bg-surface-container/50 h-48 flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2 group-hover:text-primary transition-colors" style="font-variation-settings: 'FILL' 0;">add_photo_alternate</span>
+<span class="font-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Tap to select photo</span>
+</div>
+</section>
+<!-- Style Selector -->
+<section class="flex flex-col gap-4">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase flex justify-between">
+<span>Aesthetic Style</span>
+<span class="text-primary">02 / Cinematic</span>
+</label>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<div class="flex-shrink-0 w-24 h-32 rounded-lg border border-outline-variant/30 bg-surface-container flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
+<span class="font-label-sm text-label-sm text-on-surface-variant rotate-[-90deg]">Minimal</span>
+</div>
+<div class="flex-shrink-0 w-24 h-32 rounded-lg border-2 border-tertiary-fixed bg-surface flex items-center justify-center cursor-pointer">
+<span class="font-label-sm text-label-sm text-tertiary-fixed rotate-[-90deg]">Cinematic</span>
+</div>
+<div class="flex-shrink-0 w-24 h-32 rounded-lg border border-outline-variant/30 bg-surface-container flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
+<span class="font-label-sm text-label-sm text-on-surface-variant rotate-[-90deg]">Editorial</span>
+</div>
+<div class="flex-shrink-0 w-24 h-32 rounded-lg border border-outline-variant/30 bg-surface-container flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
+<span class="font-label-sm text-label-sm text-on-surface-variant rotate-[-90deg]">Brutalist</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="p-container-padding-mobile flex-shrink-0 border-t border-outline-variant/10 bg-surface-container-low">
+<button class="w-full bg-tertiary-fixed text-on-tertiary-fixed font-body-lg font-medium py-4 rounded-full flex justify-center items-center gap-2 hover:bg-tertiary-fixed-dim transition-colors shadow-[0_4px_14px_rgba(255,219,208,0.1)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+                Generate Poster
+            </button>
+</div>
+</aside>
+<!-- Right Canvas (Preview) -->
+<main class="hidden md:flex flex-1 bg-[#111111] items-center justify-center p-8 relative z-10 shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]">
+<!-- Poster Frame (Aspect Ratio constraint) -->
+<div class="relative w-full max-w-[600px] aspect-[4/5] bg-surface-container-highest rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.3)] border border-outline-variant/10 overflow-hidden group">
+<!-- Placeholder Background Image -->
+<img alt="Run Preview" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" data-alt="A moody, cinematic photograph of a solitary runner on a misty mountain road at dawn. The lighting is soft and diffused, creating a serene, introspective atmosphere consistent with an indie film studio aesthetic. The color palette is dominated by deep forest greens, desaturated greys, and muted morning light, reflecting the brand's 'Quietly Premium' editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXjLETt-Jx1AAIStEBPTx8YFNLGmGT36UUa6OSoA3e18luYq5ZKebAHYtYCP3dhFHNV8EHOfRXELrFlkDUkyFG3CEWabDPNH_02L0kyLtMs-Ny0stOloG7s_pF_Cbhbael5QLvN9thajkMQ3HgwlhtPnLajVVKR_xRMKUMWU5xksLLJIj4OKIM-DgV776feRYNxgSXf4aQTnCemuboF61IBGYe5-QDML8oSb7eaTaC6synxT-DJdDI12i6__lsKtmoXYXSHsZtfP4"/>
+<!-- Gradient Overlay for Text Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<!-- Poster Content -->
+<div class="absolute inset-0 p-8 flex flex-col justify-end text-on-surface">
+<div class="flex justify-between items-end">
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-xl text-headline-xl text-inverse-surface tracking-wide drop-shadow-md">SUNDAY<br/>LONG RUN</h2>
+<div class="flex gap-3 mt-2">
+<span class="px-3 py-1 bg-surface-container/50 backdrop-blur-sm border border-outline-variant/30 rounded-full font-label-sm text-label-sm text-on-surface tracking-widest">12.4 MI</span>
+<span class="px-3 py-1 bg-surface-container/50 backdrop-blur-sm border border-outline-variant/30 rounded-full font-label-sm text-label-sm text-on-surface tracking-widest">1:42:05</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Pace</p>
+<p class="font-headline-lg text-headline-lg text-inverse-surface">8:14 <span class="font-label-sm text-label-sm text-on-surface-variant">/mi</span></p>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-8 left-8">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest opacity-60">Vol. 42</span>
+</div>
+<div class="absolute top-8 right-8 text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest opacity-60">Portland, OR<br/>10.24.23</span>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Nav (Suppressed on Desktop due to layout) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-4 md:hidden bg-surface-container/95 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center bg-tertiary-container text-tertiary-fixed-dim rounded-full px-6 py-2 scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">palette</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Styles</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-bright transition-all duration-300 rounded-full">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">download</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Download</span>
+</button>
+</nav>
+</body></html>

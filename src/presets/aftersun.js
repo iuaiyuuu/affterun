@@ -8,6 +8,6 @@ export const aftersunPreset = {
   description: "No records were broken today. Just a few kilometers spent breathing slowly, clearing small thoughts, and letting the body move without pressure.",
   footerTitle: "Affterun",
   footerSubtitle: "Poster 001",
-  photoUrl: "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80",
+  photoUrl: "/assets/base.jpg",
   noiseUrl: "/assets/noise_bg.png"
 }

@@ -8,6 +8,6 @@ export const retroPreset = {
   description: "Some days only make sense after moving for a while.",
   footerTitle: "Affterun",
   footerSubtitle: "Poster 002",
-  photoUrl: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80",
+  photoUrl: "/assets/base.jpg",
   noiseUrl: "/assets/noise_bg.png"
 }

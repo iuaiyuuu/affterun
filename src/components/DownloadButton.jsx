@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { exportPoster } from '../utils/exportImage';
 
-export default function DownloadButton({ elementId }) {
+export default function DownloadButton({ elementId, className, children }) {
   const [exporting, setExporting] = useState(false);
 
   const handleDownload = async () => {
@@ -10,13 +10,27 @@ export default function DownloadButton({ elementId }) {
     setExporting(false);
   };
 
+  const defaultStyles = "w-full h-12 bg-gradient-to-r from-[#e09b82] to-[#ffb59d] text-[#141313] font-semibold hover:brightness-110 hover:shadow-[0_4px_20px_rgba(255,181,157,0.25)] font-label-sm text-label-sm uppercase tracking-widest rounded transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-wait";
+
   return (
     <button 
       onClick={handleDownload}
       disabled={exporting}
-      className="w-full py-4 mt-2 bg-[#fbbc05] hover:bg-[#e0a800] text-black rounded-xl font-bold text-lg transition-colors shadow-sm disabled:opacity-70 disabled:cursor-wait"
+      className={className || defaultStyles}
     >
-      {exporting ? 'Generating Poster...' : 'Download Poster (PNG)'}
+      {exporting ? (
+        <>
+          <span className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"></span>
+          <span>Generating...</span>
+        </>
+      ) : (
+        children || (
+          <>
+            <span className="material-symbols-outlined text-[18px]">download</span>
+            <span>Export Poster</span>
+          </>
+        )
+      )}
     </button>
   );
 }

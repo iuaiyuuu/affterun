@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Affterun - Poster Creator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Geist:wght@500&amp;family=Libre+Caslon+Text:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdbd0",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "surface": "#141313",
+                        "on-error": "#690005",
+                        "primary-container": "#1a1a1a",
+                        "surface-variant": "#353434",
+                        "on-primary-container": "#848282",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#3a3939",
+                        "primary": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#c36b4d",
+                        "on-secondary-container": "#b9b8b4",
+                        "on-tertiary-fixed": "#390c00",
+                        "on-tertiary": "#5a1b04",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-tint": "#c8c6c5",
+                        "on-secondary-fixed": "#1b1c19",
+                        "surface-container-low": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#783118",
+                        "on-background": "#e5e2e1",
+                        "secondary": "#c8c6c2",
+                        "on-primary": "#313030",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#141313",
+                        "outline": "#8e9192",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e4e2dd",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#ffb59d",
+                        "secondary-container": "#494946",
+                        "surface-container": "#201f1f",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "on-secondary": "#30312e",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-highest": "#353434",
+                        "surface-container-high": "#2b2a2a",
+                        "outline-variant": "#444748",
+                        "on-primary-fixed-variant": "#474746",
+                        "background": "#141313",
+                        "tertiary-container": "#370b00",
+                        "on-secondary-fixed-variant": "#474744"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-mobile": "24px",
+                        "container-padding-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "body-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "headline-xl": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Global Noise Texture Overlay for Cinematic Editorial Feel */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        /* Material Symbols Setup */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen overflow-hidden flex flex-col md:flex-row antialiased">
+<!-- TopAppBar (Mobile Only - Suppressed on Desktop due to Split Layout Request) -->
+<header class="md:hidden flex justify-between items-center w-full px-container-padding-mobile py-6 bg-background/80 backdrop-blur-md z-40 fixed top-0 w-full">
+<button class="text-primary hover:text-primary transition-colors duration-300">
+<img alt="Affterun Logo" class="w-8 h-8 rounded-sm" src="https://lh3.googleusercontent.com/aida/ADBb0uhW_3xr8n16KupPx1tKmsHCT0yVwa4apkWmz6i7d27JEmg7GyMMBp7EehjeLGi7y4tP7NbKqxOqTabe3sbOBJ0clU26D0JlPs78Io8U8jVyAe6gDnbRTYj75uB61HfJunDmqNCZCV06OANEnSe8XtfX9BE8jtJSq2i39ZfI0xVwsfIB13tgkB5LSuAvmlv_nIeaeQlflzoP-x3Jzm8ECQSnCRtkHjlICfQLF3wFGBXllJPDHY7M0TXFSqAwZ9On775nEdssTNCaZw"/>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-[0.1em] uppercase text-center flex-1">AFFTERUN</h1>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300">
+            Archive
+        </button>
+</header>
+<!-- Left Column: Controls (Approx 40%) -->
+<aside class="hidden md:flex flex-col w-[40%] max-w-md h-full border-r border-surface-variant/30 bg-surface-container-low overflow-y-auto custom-scrollbar relative z-10 p-container-padding-desktop">
+<!-- Brand / Header -->
+<div class="mb-12 flex justify-between items-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-[0.1em] uppercase">AFFTERUN</h1>
+<button class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300">
+                Archive
+            </button>
+</div>
+<div class="flex-1 space-y-8">
+<!-- Strava Link Input Card -->
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.1)] relative overflow-hidden group">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Activity Source</label>
+<div class="relative"><button class="w-full mb-4 flex items-center justify-center gap-2 py-3 px-4 border border-outline-variant/30 rounded bg-surface hover:bg-surface-bright/20 transition-all duration-300 group">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="login">login</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface group-hover:text-primary">Sign in with Strava</span>
+</button>
+<div class="flex items-center gap-4 mb-4">
+<div class="flex-1 h-px bg-outline-variant/20"></div>
+<span class="font-label-sm text-[10px] text-on-surface-variant/50 uppercase tracking-[0.2em]">OR</span>
+<div class="flex-1 h-px bg-outline-variant/20"></div>
+</div>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors" data-icon="link">link</span>
+<input class="w-full bg-surface border-b border-outline-variant/30 focus:border-primary text-on-surface font-body-md text-body-md py-3 pl-12 pr-4 outline-none transition-colors rounded-none placeholder-on-surface-variant/50" placeholder="Paste Strava URL..." type="text"/>
+</div>
+</div>
+<!-- Photo Upload Card -->
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Background Imagery</label>
+<button class="w-full h-32 border border-dashed border-outline-variant/40 rounded flex flex-col items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary hover:bg-surface-bright/20 transition-all duration-300 group">
+<span class="material-symbols-outlined mb-2 group-hover:scale-110 transition-transform" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span class="font-body-md text-body-md">Click to upload photo</span>
+</button>
+</div>
+<!-- Poster Styles Selection -->
+<div class="bg-surface-container p-6 rounded-lg border border-outline-variant/20 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Editorial Style</label>
+<div class="space-y-2">
+<!-- Active Style -->
+<button class="w-full flex items-center justify-between p-4 bg-tertiary-container/10 border border-tertiary-container rounded transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-8 h-12 bg-surface-dim border border-outline-variant/20 rounded-sm shadow-sm"></div>
+<span class="font-body-md text-body-md text-tertiary-fixed-dim">Cinematic Film</span>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Inactive Style 1 -->
+<button class="w-full flex items-center justify-between p-4 border border-transparent hover:bg-surface-bright/50 rounded transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-8 h-12 bg-surface border border-outline-variant/20 rounded-sm shadow-sm flex flex-col justify-end p-1"><div class="w-full h-1/3 bg-surface-variant"></div></div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface">Brutal Print</span>
+</div>
+</button>
+<!-- Inactive Style 2 -->
+<button class="w-full flex items-center justify-between p-4 border border-transparent hover:bg-surface-bright/50 rounded transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-8 h-12 bg-surface border border-outline-variant/20 rounded-sm shadow-sm flex items-center justify-center p-1"><div class="w-4 h-4 rounded-full bg-surface-variant"></div></div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface">Minimalist Grid</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Download Action (Sticky Bottom) -->
+<div class="mt-8 pt-8 border-t border-surface-variant/30">
+<button class="w-full h-12 bg-tertiary-container text-on-tertiary-container hover:bg-tertiary-fixed-dim hover:text-surface font-label-sm text-label-sm uppercase tracking-widest rounded transition-colors duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                Export Poster
+            </button>
+</div>
+</aside>
+<!-- Right Column: Canvas (Approx 60%) -->
+<main class="flex-1 bg-surface-container-lowest relative flex items-center justify-center p-8 md:p-12 h-full mt-24 md:mt-0 overflow-hidden">
+<!-- Canvas Toolbar (Floating Top Right) -->
+<div class="absolute top-8 right-8 hidden md:flex items-center gap-4 z-20">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors bg-surface-container/50 backdrop-blur rounded-full border border-outline-variant/20" title="Zoom In">
+<span class="material-symbols-outlined" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors bg-surface-container/50 backdrop-blur rounded-full border border-outline-variant/20" title="Zoom Out">
+<span class="material-symbols-outlined" data-icon="zoom_out">zoom_out</span>
+</button>
+</div>
+<!-- The Poster (Inset Frame Look) -->
+<div class="w-full max-w-[500px] aspect-[4/5] bg-surface relative shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-surface-variant/50 overflow-hidden group">
+<!-- Image Area -->
+<div class="absolute inset-0 w-full h-[70%] top-0">
+<img class="w-full h-full object-cover filter grayscale contrast-125 opacity-80 mix-blend-luminosity" data-alt="A cinematic, black and white film photography style image of a solitary runner on an empty misty road at dawn. The atmosphere is quiet, introspective, and moody, relying on high contrast shadows and soft morning light. The runner is a small figure in a vast, minimalist landscape, emphasizing a premium, narrative-driven editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEYDWrLLgvs4JRR0hJdsmjW--fVQBTmSeMvkpacc6rf1D9AxoBuZxQ0XToQZnbUfqF6qv2z6hnoPlnKIN1QTDtjWJUyXrR0qKnCe6H_9j5iIGsBsLOsddqgwAvY280J_kOemOFUy310FzfSsMz-p90fTdVSn_s8i_DJ-Fsqx-vopfbAqzZ7e3PiodSg8gVbPLg3xs7wjpX28F7gFWLtyVTSPYSVZ4xUJPGwEIjNkEShpNL2y3oaleEbYv4oJvi5wct63ZkgJzs5w8"/>
+<!-- Inner gradient for fading into text area -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface/20 to-surface"></div>
+</div>
+<!-- Content Area (Editorial Layout) -->
+<div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end bg-surface">
+<!-- Run Title & Date -->
+<div class="mb-8 border-l-2 border-tertiary-fixed-dim pl-4">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2 tracking-tight">Morning<br/>Escape</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Oct 24, 2023 · Tokyo</p>
+</div>
+<!-- Metrics Bento Layout -->
+<div class="grid grid-cols-3 gap-4 border-t border-outline-variant/20 pt-6">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1 opacity-70">Distance</p>
+<p class="font-body-lg text-body-lg text-on-surface">12.4 <span class="text-sm text-on-surface-variant">km</span></p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1 opacity-70">Pace</p>
+<p class="font-body-lg text-body-lg text-on-surface">5:20 <span class="text-sm text-on-surface-variant">/km</span></p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1 opacity-70">Time</p>
+<p class="font-body-lg text-body-lg text-on-surface">1:06:12</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-4 bg-surface-container/95 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center bg-tertiary-container text-tertiary-fixed-dim rounded-full px-6 py-2 scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="palette" style="font-variation-settings: 'FILL' 1;">palette</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Styles</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-bright transition-all duration-300 rounded-full">
+<span class="material-symbols-outlined mb-1" data-icon="download">download</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Download</span>
+</button>
+</nav>
+</body></html>

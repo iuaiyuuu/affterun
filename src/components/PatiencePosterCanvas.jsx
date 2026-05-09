@@ -26,14 +26,17 @@ function formatDuration(dur) {
   return dur.replace(/\s*\d+s\b/gi, '').trim().toUpperCase()
 }
 
-export default function PatiencePosterCanvas({ data }) {
+export default function PatiencePosterCanvas({ data, style }) {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
 
   const { day, month, year } = parseDateParts(data.date)
 
+  const isExternal = data.photoUrl && (data.photoUrl.startsWith('http://') || data.photoUrl.startsWith('https://'));
+  const crossOriginProp = isExternal ? 'anonymous' : undefined;
+
   return (
-    <div id="poster-export-node" className="poster patience-design" data-name="patience_design">
+    <div id="poster-export-node" className="poster patience-design" data-name="patience_design" style={style}>
 
       {/* Background photo — uses the oversized container from HTML template */}
       <div className="bg" data-name="BG">
@@ -49,7 +52,8 @@ export default function PatiencePosterCanvas({ data }) {
             containerStyle: { width: '100%', height: '100%', position: 'absolute' },
             cropAreaStyle: { border: 'none', boxShadow: 'none' }
           }}
-          crossOrigin="anonymous"
+          crossOrigin={crossOriginProp}
+          objectFit="cover"
         />
       </div>
 

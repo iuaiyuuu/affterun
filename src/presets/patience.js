@@ -9,5 +9,5 @@ export const patiencePreset = {
   footerTitle: "Affterun",
   footerSubtitle: "Poster 003",
   athleteName: "Abiyyu Rahman",
-  photoUrl: "https://images.unsplash.com/photo-1709907152304-1444d3bf2e65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMHZpbGxhZ2UlMjBncmVlbiUyMGZpZWxkcyUyMGJsdWUlMjBza3klMjBsYW5kc2NhcGV8ZW58MXx8fHwxNzc4MjkwNTA3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  photoUrl: "/assets/base.jpg"
 }

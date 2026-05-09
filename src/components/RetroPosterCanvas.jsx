@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useId } from 'react'
 import Cropper from 'react-easy-crop'
 import '../styles/retro.css'
 
@@ -9,9 +9,11 @@ const formatDurationWithoutSeconds = (durationStr) => {
   return cleaned || '0m'
 }
 
-export default function RetroPosterCanvas({ data }) {
+export default function RetroPosterCanvas({ data, style }) {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
+  const uniqueId = useId();
+  const maskId = `retro-overlay-mask-${uniqueId.replace(/:/g, '')}`;
 
   // Handle crop changes to apply to both croppers simultaneously
   const onCropChange = (newCrop) => {
@@ -22,8 +24,12 @@ export default function RetroPosterCanvas({ data }) {
     setZoom(newZoom)
   }
 
+  const isExternal = data.photoUrl && (data.photoUrl.startsWith('http://') || data.photoUrl.startsWith('https://'));
+  const crossOriginProp = isExternal ? 'anonymous' : undefined;
+  const currentUrl = typeof window !== 'undefined' ? window.location.href.split('#')[0] : '';
+
   return (
-    <div id="poster-export-node" className="poster retro-design" data-name="retro_design">
+    <div id="poster-export-node" className="poster retro-design" data-name="retro_design" style={style}>
         {/* Single background photo spanning the entire height */}
         <div className="bg-photo" data-name="BG">
             <Cropper
@@ -38,14 +44,15 @@ export default function RetroPosterCanvas({ data }) {
                 containerStyle: { width: '100%', height: '100%', position: 'absolute' },
                 cropAreaStyle: { border: 'none', boxShadow: 'none' }
               }}
-              crossOrigin="anonymous"
+              crossOrigin={crossOriginProp}
+              objectFit="cover"
             />
         </div>
 
         {/* SVG Cutout Overlay: solid background with transparent cutouts for RETRO and the bottom photo */}
         <svg className="svg-overlay" width="911" height="1165" viewBox="0 0 911 1165" style={{ position: 'absolute', left: '0', top: '170px', pointerEvents: 'none' }} aria-hidden="true">
             <defs>
-                <mask id="retro-overlay-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="911" height="1165">
+                <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="911" height="1165">
                     {/* Fill everything with white (making the overlay fully visible/solid) */}
                     <rect width="911" height="1165" fill="#ffffff" />
                     
@@ -112,7 +119,7 @@ export default function RetroPosterCanvas({ data }) {
             </defs>
             
             {/* The solid overlay rectangle filled with background color, masked by our overlay mask */}
-            <rect width="911" height="1165" fill="#e3dfdc" mask="url(#retro-overlay-mask)" />
+            <rect width="911" height="1165" fill="#e3dfdc" mask={`url(#${maskId})`} />
         </svg>
 
         {/* ── Stats labels */}

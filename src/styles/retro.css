@@ -29,10 +29,18 @@
 .retro-design .bg-photo {
     position: absolute;
     left: 16px;
-    top: 170px;
+    top: 173px;
     width: 880px;
     height: 1165px;
     overflow: hidden; /* Prevent preview bleed outside the 880px photo width */
+}
+
+/* Cropper fills the bg-photo container */
+.retro-design .bg-photo .reactEasyCrop_Container {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* ── SVG Cutout Overlay ────────────────────── */
@@ -104,7 +112,7 @@
     font-family: 'Racing Sans One', cursive;
     font-style: normal;
     font-size: 19px;
-    color: #000;
+    color: #ffffff;
     white-space: nowrap;
     left: 50%;
     transform: translateX(-50%);
