@@ -1,0 +1,209 @@
+/* ─── Google Fonts ─── */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Noto+Sans+Gujarati:wght@100..900&family=Noto+Sans:wght@400;700&display=swap');
+
+/* ════════════════════════════════════════
+    POSTER  —  1080 × 1350 px
+════════════════════════════════════════ */
+.poster {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    flex-shrink: 0;
+    
+    /* background: noise texture + white gradient */
+    background-image:
+        url('/assets/noise_bg.png'),
+        linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+    background-size: 1024px 1024px, auto auto;
+    background-position: top left, top left;
+    background-repeat: no-repeat, repeat;
+    
+    /* For browser preview scaling */
+    transform: scale(0.6);
+    transform-origin: top center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    margin-bottom: -500px; /* offset the height visually due to scale */
+}
+
+/* ─── FRAME_IMAGE ─── */
+.frame-image {
+    position: absolute;
+    width: 680px;
+    height: 1350px;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.image-bg {
+    position: absolute;
+    width: 955px;
+    height: 1350px;
+    left: -273px;
+    top: 0;
+}
+
+.image-bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    max-width: none;
+}
+
+/* ─── Right panel ─── */
+.right-panel {
+    position: absolute;
+    left: 680px;
+    top: 0;
+    width: 400px;
+    height: 1350px;
+    background: #f2f0f1;
+    pointer-events: none;
+}
+
+/* ─── Title ─── */
+.title {
+    position: absolute;
+    left: 205px;
+    top: 33px;
+    white-space: nowrap;
+    font-family: 'Noto Sans Gujarati', 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 178px;
+    line-height: normal;
+    color: #f6b50b;
+    font-variation-settings: 'CTGR' 0, 'wdth' 100, 'wght' 700;
+    pointer-events: none;
+}
+
+/* ─── Frame1 ─── */
+.frame1 {
+    position: absolute;
+    width: 303px;
+    height: 97px;
+    left: calc(50% + 317.5px);
+    bottom: 982px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 5px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-content: flex-start;
+    font-size: 25px;
+    color: black;
+    line-height: normal;
+    pointer-events: none;
+}
+
+.frame1-time,
+.frame1-date {
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.frame1-name {
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    width: 303px;
+    height: 65px;
+    text-align: right;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* ─── Frame stats ─── */
+.frame-stats {
+    position: absolute;
+    width: 291px;
+    right: 71px;
+    top: calc(50% + 522px);
+    transform: translateY(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 25px;
+    color: black;
+    line-height: normal;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.frame-stats p {
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* ─── Description ─── */
+.description {
+    position: absolute;
+    width: 303px;
+    height: 143px;
+    left: 1009px;
+    top: 1042px;
+    transform: translateX(-100%);
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 21px;
+    color: black;
+    line-height: normal;
+    text-align: right;
+    pointer-events: none;
+}
+
+/* ─── Footer ─── */
+.footer {
+    position: absolute;
+    left: 1009px;
+    top: 1222px;
+    transform: translateX(-100%);
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    color: black;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.footer p {
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+/* ─── Noise overlay ─── */
+.noise-bg {
+    position: absolute;
+    left: -150px;
+    top: -15px;
+    width: 1380px;
+    height: 1380px;
+    opacity: 0.17;
+    pointer-events: none;
+}
+
+.noise-bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    max-width: none;
+}

@@ -1,0 +1,241 @@
+/* ── Google Fonts ─────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Sofia+Sans+Semi+Condensed:wght@300&family=Reddit+Sans:ital,wght@0,400;1,400&display=swap');
+
+/* ══ Reset ═══════════════════════════════════════ */
+.patience-design *,
+.patience-design *::before,
+.patience-design *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ══ Poster canvas ════════════════════════════════ */
+.patience-design.poster {
+    position: relative;
+    width: 759px;
+    height: 1350px;
+    overflow: hidden;
+    flex-shrink: 0;
+    /* Cancel aftersun.css .poster global rules (CSS is global in Vite) */
+    background-image: none;
+    transform: none;
+    transform-origin: unset;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+/* ── Background image ────────────────────────── */
+.patience-design .bg {
+    position: absolute;
+    inset: 0;
+    width: 759px;
+    height: 1350px;
+    overflow: hidden;
+}
+
+/* Cropper fills the full poster */
+.patience-design .bg .reactEasyCrop_Container {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* ── Filter / light wash overlay ─────────────── */
+.patience-design .filter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 759px;
+    height: 1350px;
+    background: rgba(248, 251, 248, 0.26);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Title: "Patience" ───────────────────────── */
+.patience-design .p-title {
+    position: absolute;
+    left: 60px;
+    top: 209px;
+    width: 385px;
+    height: 117px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #113e5b;
+    font-size: 65px;
+    letter-spacing: -4.55px;
+    line-height: normal;
+    z-index: 2;
+}
+
+/* ── Shot on label ───────────────────────────── */
+.patience-design .shot-on {
+    position: absolute;
+    left: 524px;
+    top: 268px;
+    width: 129px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 0.91;
+    color: #113e5b;
+    font-size: 15.451px;
+    z-index: 2;
+}
+
+.patience-design .shot-on .shot-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 16.264px;
+    width: 100%;
+}
+
+.patience-design .shot-on .shot-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    height: 35.78px;
+    width: 100%;
+}
+
+/* ── Opening quote mark ──────────────────────── */
+.patience-design .p-quote {
+    position: absolute;
+    left: 524px;
+    top: 330px;
+    width: 34px;
+    height: 57px;
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+    font-weight: 300;
+    color: #113e5b;
+    font-size: 97px;
+    line-height: 0.847;
+    z-index: 2;
+}
+
+/* ── Body paragraph ──────────────────────────── */
+.patience-design .body-text {
+    position: absolute;
+    left: 60px;
+    top: 374px;
+    width: 347px;
+    height: 96px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #113e5b;
+    font-size: 19px;
+    line-height: 0.91;
+    z-index: 2;
+}
+
+/* ── Horizontal divider ──────────────────────── */
+.patience-design .p-divider {
+    position: absolute;
+    left: 60px;
+    top: 541px;
+    width: 274px;
+    height: 0;
+    z-index: 2;
+}
+
+.patience-design .p-divider svg {
+    display: block;
+    width: 274px;
+    height: 3px;
+    overflow: visible;
+}
+
+/* ── Date frame ────────────────────────────────────── */
+.patience-design .date-frame {
+    position: absolute;
+    left: 60px;
+    top: 668px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: visible;
+    z-index: 2;
+}
+
+.patience-design .date-num-wrapper {
+    display: contents; /* transparent passthrough — children join date-frame flex directly */
+}
+
+/* DD — same font as YYYY */
+.patience-design .date-num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #113e5b;
+    font-size: 37.516px;
+    letter-spacing: -3.0013px;
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+.patience-design .date-month {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #113e5b;
+    font-size: 37.516px;
+    letter-spacing: -3.0013px;
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+.patience-design .date-year {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #113e5b;
+    font-size: 37.516px;
+    letter-spacing: -3.0013px;
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+/* ── Stats block (distance / duration / time) ── */
+.patience-design .p-stats {
+    position: absolute;
+    left: 551px;
+    top: 555px;
+    width: 102.125px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #113e5b;
+    font-size: 19.792px;
+    text-align: right;
+    line-height: normal;
+    z-index: 2;
+}
+
+/* ── Affterun / Poster 003 label ─────────────── */
+.patience-design .poster-label {
+    position: absolute;
+    left: 653px;
+    top: 671px;
+    transform: translateX(-100%);
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    color: #113e5b;
+    font-size: 15px;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 0;
+    z-index: 2;
+}
+
+.patience-design .poster-label p {
+    line-height: normal;
+    margin-bottom: 0;
+}

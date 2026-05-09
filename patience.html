@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patience — Affterun Poster 003</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Sofia+Sans+Semi+Condensed:wght@300&family=Reddit+Sans:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .poster {
+            position: relative;
+            width: 759px;
+            height: 1350px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Background image */
+        .bg {
+            position: absolute;
+            width: 1317px;
+            height: 1646px;
+            left: -304px;
+            top: -164px;
+            pointer-events: none;
+        }
+
+        .bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Semi-transparent filter overlay */
+        .filter {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 759px;
+            height: 1350px;
+            background: rgba(248, 251, 248, 0.26);
+            pointer-events: none;
+        }
+
+        /* Title: Patience */
+        .title {
+            position: absolute;
+            left: 60px;
+            top: 209px;
+            width: 385px;
+            height: 117px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            color: #113e5b;
+            font-size: 65px;
+            letter-spacing: -4.55px;
+            line-height: normal;
+        }
+
+        /* Shot on label */
+        .shot-on {
+            position: absolute;
+            left: 524px;
+            top: 268px;
+            width: 129px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 0.91;
+            color: #113e5b;
+            font-size: 15.451px;
+        }
+
+        .shot-on .label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            height: 16.264px;
+            width: 100%;
+        }
+
+        .shot-on .name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-style: italic;
+            height: 35.78px;
+            width: 100%;
+        }
+
+        /* Quote mark */
+        .quote {
+            position: absolute;
+            left: 524px;
+            top: 330px;
+            width: 34px;
+            height: 57px;
+            font-family: 'Sofia Sans Semi Condensed', sans-serif;
+            font-weight: 300;
+            color: #113e5b;
+            font-size: 97px;
+            line-height: 0.847;
+        }
+
+        /* Body text paragraph */
+        .body-text {
+            position: absolute;
+            left: 60px;
+            top: 374px;
+            width: 347px;
+            height: 96px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #113e5b;
+            font-size: 19px;
+            line-height: 0.91;
+        }
+
+        /* Horizontal line */
+        .divider {
+            position: absolute;
+            left: 60px;
+            top: 541px;
+            width: 274px;
+            height: 0;
+        }
+
+        .divider svg {
+            display: block;
+            width: 274px;
+            height: 3px;
+            overflow: visible;
+        }
+
+        /* Date frame: 25 DEC 2026 */
+        .date-frame {
+            position: absolute;
+            left: 60px;
+            top: 668px;
+            display: flex;
+            align-items: center;
+        }
+
+        .date-num-wrapper {
+            width: 20.753px;
+            height: 38.314px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: visible;
+            position: relative;
+        }
+
+        .date-num-inner {
+            transform: rotate(-90deg);
+            transform-origin: center center;
+            flex: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .date-num {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            color: #113e5b;
+            font-size: 23.946px;
+            letter-spacing: -1.9157px;
+            line-height: 0.98;
+            white-space: nowrap;
+            width: 38.314px;
+            height: 20.753px;
+            display: flex;
+            align-items: center;
+        }
+
+        .date-month {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            color: #113e5b;
+            font-size: 37.516px;
+            letter-spacing: -3.0013px;
+            line-height: normal;
+            height: 44.7px;
+            width: 71.04px;
+            flex-shrink: 0;
+        }
+
+        .date-year {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            color: #113e5b;
+            font-size: 37.516px;
+            letter-spacing: -3.0013px;
+            line-height: normal;
+            height: 44.7px;
+            width: 86.206px;
+            flex-shrink: 0;
+        }
+
+        /* Stats block */
+        .stats {
+            position: absolute;
+            left: 551px;
+            top: 555px;
+            width: 102.125px;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Reddit Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #113e5b;
+            font-size: 19.792px;
+            text-align: right;
+            line-height: normal;
+        }
+
+        /* Affterun / Poster 003 — right side label */
+        .poster-label {
+            position: absolute;
+            left: 653px;
+            top: 671px;
+            transform: translateX(-100%);
+            font-family: 'Reddit Sans', sans-serif;
+            font-weight: 400;
+            font-style: italic;
+            color: #113e5b;
+            font-size: 15px;
+            text-align: right;
+            white-space: nowrap;
+            line-height: 0;
+        }
+
+        .poster-label p {
+            line-height: normal;
+            margin-bottom: 0;
+        }
+
+        .poster-label p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="poster">
+        <!-- Background -->
+        <div class="bg">
+            <img src="https://images.unsplash.com/photo-1709907152304-1444d3bf2e65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMHZpbGxhZ2UlMjBncmVlbiUyMGZpZWxkcyUyMGJsdWUlMjBza3klMjBsYW5kc2NhcGV8ZW58MXx8fHwxNzc4MjkwNTA3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Mountain landscape background" />
+        </div>
+
+        <!-- Filter overlay -->
+        <div class="filter"></div>
+
+        <!-- Title -->
+        <p class="title">Patience</p>
+
+        <!-- Shot on -->
+        <div class="shot-on">
+            <p class="label">Shot on</p>
+            <p class="name">Abiyyu Rahman</p>
+        </div>
+
+        <!-- Quote mark -->
+        <p class="quote">"</p>
+
+        <!-- Body paragraph -->
+        <p class="body-text">Patience is continuing to move forward without needing every run to feel perfect. There are
+            days when the pace feels slower, yet the mind feels lighter with every kilometer.</p>
+
+        <!-- Divider line -->
+        <div class="divider">
+            <svg fill="none" preserveAspectRatio="none" viewBox="0 0 274 3">
+                <line stroke="#113E5B" stroke-width="3" x2="274" y1="1.5" y2="1.5" />
+            </svg>
+        </div>
+
+        <!-- Date: 25 DEC 2026 -->
+        <div class="date-frame">
+            <div class="date-num-wrapper">
+                <div class="date-num-inner">
+                    <span class="date-num">25</span>
+                </div>
+            </div>
+            <span class="date-month">DEC</span>
+            <span class="date-year">2026</span>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <p>113.88 KM</p>
+            <p>10H 33M</p>
+            <p>08:43 AM</p>
+        </div>
+
+        <!-- Affterun label -->
+        <div class="poster-label">
+            <p>Affterun</p>
+            <p>Poster 003</p>
+        </div>
+    </div>
+</body>
+
+</html>

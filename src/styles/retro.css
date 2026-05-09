@@ -1,0 +1,146 @@
+/* ── Google Fonts (matching retro_sonet.html) ── */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,400;0,700;1,400&family=Racing+Sans+One&family=Kaisei+HarunoUmi&display=swap');
+
+/* ── Reset ─────────────────────────────────── */
+.retro-design *,
+.retro-design *::before,
+.retro-design *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Poster canvas ─────────────────────────── */
+.retro-design.poster {
+    position: relative;
+    width: 911px;
+    height: 1350px;
+    background: #e3dfdc;
+    overflow: hidden;
+    /* Cancel the scale(0.6) applied by aftersun.css .poster rule (CSS is global in Vite) */
+    transform: none;
+    transform-origin: unset;
+    margin-bottom: 0;
+    box-shadow: none;
+    background-image: none;
+}
+
+/* ── Main photo (below RETRO text) ─────────── */
+.retro-design .bg-photo {
+    position: absolute;
+    left: 16px;
+    top: 170px;
+    width: 880px;
+    height: 1165px;
+    overflow: hidden; /* Prevent preview bleed outside the 880px photo width */
+}
+
+/* ── SVG Cutout Overlay ────────────────────── */
+.retro-design .svg-overlay {
+    position: absolute;
+    left: 0;
+    top: 170px;
+    width: 911px;
+    height: 1165px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Noise texture overlay ─────────────────── */
+.retro-design .noise-overlay {
+    position: absolute;
+    left: -150px;
+    top: -15px;
+    width: 1380px;
+    height: 1380px;
+    opacity: 0.24;
+    pointer-events: none;
+    z-index: 99; /* Noise grain should cover everything (white background, photo, text) */
+}
+
+.retro-design .noise-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Stats typography ──────────────────────── */
+.retro-design .stat-label {
+    position: absolute;
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000;
+    line-height: normal;
+    z-index: 2; /* Render on top of solid SVG overlay */
+}
+
+.retro-design .stat-value {
+    position: absolute;
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: #000;
+    line-height: 1;
+    z-index: 2; /* Render on top of solid SVG overlay */
+}
+
+/* ── Corner "+" marks ──────────────────────── */
+.retro-design .corner-plus {
+    position: absolute;
+    font-family: 'Kaisei HarunoUmi', serif;
+    font-style: normal;
+    font-size: 139px;
+    color: #000;
+    opacity: 0.5;
+    line-height: normal;
+    top: -56px;
+    z-index: 2; /* Render on top of solid SVG overlay */
+}
+
+/* ── Quote ─────────────────────────────────── */
+.retro-design .quote-text {
+    position: absolute;
+    font-family: 'Racing Sans One', cursive;
+    font-style: normal;
+    font-size: 19px;
+    color: #000;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1219px;
+    z-index: 2; /* Render on top of solid SVG overlay */
+}
+
+/* ── Barcode ───────────────────────────────── */
+.retro-design .barcode {
+    position: absolute;
+    left: 349px;
+    top: 1247px;
+    width: 213px;
+    height: 74px;
+    overflow: hidden;
+    z-index: 2; /* Render on top of solid SVG overlay */
+}
+
+.retro-design .barcode img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Credit text ───────────────────────────── */
+.retro-design .credit-text {
+    position: absolute;
+    right: 38px;
+    top: 1284px;
+    font-family: 'Reddit Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    color: #000;
+    text-align: right;
+    white-space: nowrap;
+    line-height: normal;
+    z-index: 2; /* Render on top of solid SVG overlay */
+}
